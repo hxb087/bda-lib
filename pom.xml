@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.golaxy.ebd</groupId>
+    <artifactId>ebd-mllib</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>common</module>
+        <module>core-mllib</module>
+        <module>local-mllib</module>
+        <module>etl</module>
+        <module>modeldeployment</module>
+        <module>hadrian</module>
+        <module>h2o-mllib</module>
+    </modules>
+
+    <properties>
+        <spark.version>2.2.0</spark.version>
+        <scala.version>2.11</scala.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.4</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-math3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-math3</artifactId>
+                <version>3.5</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.scalatest/scalatest -->
+            <dependency>
+                <groupId>org.scalatest</groupId>
+                <artifactId>scalatest_2.10</artifactId>
+                <version>2.2.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.12</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.12</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.nscala-time/nscala-time -->
+            <dependency>
+                <groupId>com.github.nscala-time</groupId>
+                <artifactId>nscala-time_2.11</artifactId>
+                <version>2.20.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.nlpcn/nlp-lang -->
+            <dependency>
+                <groupId>org.nlpcn</groupId>
+                <artifactId>nlp-lang</artifactId>
+                <version>1.7.7</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.ansj/ansj_seg -->
+            <dependency>
+                <groupId>org.ansj</groupId>
+                <artifactId>ansj_seg</artifactId>
+                <version>5.1.6</version>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/log4j/apache-log4j-extras -->
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>apache-log4j-extras</artifactId>
+                <version>1.2.17</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-streaming_${scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-mllib_${scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_${scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-graphx -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-graphx_${scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_${scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-hive -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-hive_${scala.version}</artifactId>
+                <version>${spark.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-catalyst -->
+            <!--<dependency>-->
+                <!--<groupId>org.apache.spark</groupId>-->
+                <!--<artifactId>spark-catalyst_${scala.version}</artifactId>-->
+                <!--<version>${spark.version}</version>-->
+                <!--<scope>test</scope>-->
+            <!--</dependency>-->
+
+
+            <dependency>
+                <groupId>com.github.scopt</groupId>
+                <artifactId>scopt_2.11</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.databricks/spark-csv -->
+            <dependency>
+                <groupId>com.databricks</groupId>
+                <artifactId>spark-csv_${scala.version}</artifactId>
+                <version>1.5.0</version>
+            </dependency><!-- https://mvnrepository.com/artifact/com.univocity/univocity-parsers -->
+            <dependency>
+                <groupId>com.univocity</groupId>
+                <artifactId>univocity-parsers</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.mongodb.spark/mongo-spark-connector -->
+            <dependency>
+                <groupId>org.mongodb.spark</groupId>
+                <artifactId>mongo-spark-connector_2.10</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.mongodb.mongo-hadoop/mongo-hadoop-core -->
+            <dependency>
+                <groupId>org.mongodb.mongo-hadoop</groupId>
+                <artifactId>mongo-hadoop-core</artifactId>
+                <version>2.0.2</version>
+            </dependency>
+
+
+            <!--pfa 使用-->
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>1.8.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.sksamuel.avro4s</groupId>
+                <artifactId>avro4s-core_2.11</artifactId>
+                <version>1.7.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.sksamuel.avro4s/avro4s-json -->
+            <dependency>
+                <groupId>com.sksamuel.avro4s</groupId>
+                <artifactId>avro4s-json_2.11</artifactId>
+                <version>1.7.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.json4s/json4s-ast -->
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-ast_2.11</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.json4s/json4s-core -->
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-core_2.11</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-native_2.11</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json4s</groupId>
+                <artifactId>json4s-scalap_2.11</artifactId>
+                <version>3.5.0</version>
+            </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/com.holdenkarau/spark-testing-base -->
+            <dependency>
+                <groupId>com.holdenkarau</groupId>
+                <artifactId>spark-testing-base_2.11</artifactId>
+                <version>2.2.0_0.7.2</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

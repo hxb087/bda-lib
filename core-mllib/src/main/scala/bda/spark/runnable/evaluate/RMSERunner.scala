@@ -1,0 +1,68 @@
+package bda.spark.runnable.evaluate
+
+import bda.spark.evaluate.Regression.RMSE
+import org.apache.spark.{SparkContext, SparkConf}
+import scopt.OptionParser
+import org.apache.log4j.{Level, Logger}
+import bda.common.util.Msg
+import bda.common.Logging
+
+
+/**
+  * Evaluate for binary classification.
+  *
+  * Input:
+  * - predict_pt format: predict label fid1:v1 fid2:v2 ...
+  * predict, label and v are doubles, fid are integers starting from 1.
+  */
+object RMSERunner extends Logging {
+
+  def main(args: Array[String]) {
+    Logger.getLogger("org").setLevel(Level.WARN)
+    Logger.getLogger("aka").setLevel(Level.WARN)
+
+    val default_params = Params()
+
+    val parser = new OptionParser[Params]("RMSERunner") {
+      head("RMSERunner: an example app for evaluation on regression.")
+      opt[String]("predict_pt")
+        .required()
+        .text("Prediction file path.")
+        .action((x, c) => c.copy(predict_pt = x))
+      note(
+        """
+          |For example, the following command runs this app on your predictions:
+          |
+          | bin/spark-submit --class bda.runnable.evaluate.RMSERunner \
+          |  spark.jar --predict_pt ...
+        """.stripMargin)
+    }
+
+    parser.parse(args, default_params) match {
+      case Some(params) => run(params)
+      case None => System.exit(1)
+    }
+  }
+
+  def run(params: Params) {
+    val conf = new SparkConf()
+      .setAppName(s"Spark Evaluation of RMSE")
+    val sc = new SparkContext(conf)
+
+    val tys = sc.textFile(params.predict_pt).map { ln =>
+      val items = ln.trim.split("\t")
+      assert(items.size > 2, "input format should be: id  label prediction")
+      val prediction = items(2).toDouble
+      val label = items(1).toDouble
+      (label, prediction)
+    }.cache()
+
+    val rmse = RMSE(tys)
+    val msg = Msg("n(prediction)" -> tys.count(),
+      "rmse" -> rmse)
+    println(msg.toString)
+  }
+
+  /** command line parameters */
+  case class Params(predict_pt: String = "")
+}

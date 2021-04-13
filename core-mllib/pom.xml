@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ebd-mllib</artifactId>
+        <groupId>com.golaxy.ebd</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>core-mllib</artifactId>
+    <repositories>
+        <repository>
+            <id>HandChina RDC Repository</id>
+            <url>http://nexus.saas.hand-china.com/content/repositories/rdc/</url>
+        </repository>
+    </repositories>
+
+    <properties>
+        <xgboost.version>1.1.2</xgboost.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.golaxy.ebd</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ml.dmlc/xgboost4j -->
+        <dependency>
+            <groupId>ml.dmlc</groupId>
+            <artifactId>xgboost4j_2.11</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/ml.dmlc/xgboost4j-spark -->
+        <dependency>
+            <groupId>ml.dmlc</groupId>
+            <artifactId>xgboost4j-spark_2.11</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_${scala.version}</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-mllib -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_${scala.version}</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-core_${scala.version}</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-graphx -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-graphx_${scala.version}</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_${scala.version}</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-hive -->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.version}</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.github.scopt</groupId>
+            <artifactId>scopt_2.11</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.databricks/spark-csv -->
+        <dependency>
+            <groupId>com.databricks</groupId>
+            <artifactId>spark-csv_${scala.version}</artifactId>
+        </dependency><!-- https://mvnrepository.com/artifact/com.univocity/univocity-parsers -->
+        <dependency>
+            <groupId>com.univocity</groupId>
+            <artifactId>univocity-parsers</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_${scala.version}</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.pivotal</groupId>
+            <artifactId>greenplum-jdbc</artifactId>
+            <version>5.1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb.spark</groupId>
+            <artifactId>mongo-spark-connector_2.10</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb.mongo-hadoop</groupId>
+            <artifactId>mongo-hadoop-core</artifactId>
+            <version>2.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.4.0-atlassian-hosted</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/lib/ojdbc6-11.2.0.4.0-atlassian-hosted.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.1.0.jre8-preview</version>
+        </dependency>
+        <dependency>
+            <groupId>com.springml</groupId>
+            <artifactId>spark-sftp_2.11</artifactId>
+            <version>1.1.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.json4s/json4s-jackson -->
+        <dependency>
+            <groupId>org.json4s</groupId>
+            <artifactId>json4s-jackson_2.11</artifactId>
+            <version>3.2.11</version>
+        </dependency>
+
+
+
+
+        <!--        <dependency>-->
+        <!--            <groupId>com.golaxy.ebd</groupId>-->
+        <!--            <artifactId>modeldeployment</artifactId>-->
+        <!--            <version>1.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
+
+
+        <!-- https://mvnrepository.com/artifact/com.holdenkarau/spark-testing-base -->
+        <dependency>
+            <groupId>com.holdenkarau</groupId>
+            <artifactId>spark-testing-base_2.11</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+
+        <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>org.apache.spark</exclude>
+
+                                </excludes>
+                            </artifactSet>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.apache.avro</pattern>
+                                    <shadedPattern>com.golaxy.avro</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.json4s</pattern>
+                                    <shadedPattern>com.golaxy.json4s</shadedPattern>
+                                </relocation>
+                            </relocations>
+                            <filters>
+                                <filter>  
+                                      <artifact>*:*</artifact>  
+                                    <excludes>  
+                                    <exclude>META-INF/*.SF</exclude>  
+                                    <exclude>META-INF/*.DSA</exclude>  
+                                    <exclude>META-INF/*.RSA</exclude>                                   
+                                    </excludes>                          
+                                </filter>                            
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+        </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <!-- <addClasspath>true</addClasspath>
+                             <useUniqueVersions>false</useUniqueVersions>
+                             <classpathPrefix>lib/</classpathPrefix>
+                             -->
+                            <mainClass>com.golaxy.bda.pretreatment.AbnormalData</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.11</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
